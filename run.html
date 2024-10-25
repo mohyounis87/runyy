@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لعبة الجري والقفز</title>
-    <link rel="stylesheet" href="style.css">
+    <title>تعلم ألوان الطيف</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>لعبة الجري والقفز</h1>
-    <div class="game-container" id="gameContainer">
-        <div id="girl"></div>
-        <div id="obstacle"></div>
+    <div class="container">
+        <h1>تطبيق تعلم ألوان الطيف</h1>
+        <div id="colorDisplay" class="color-box">
+            <p id="colorNameAr">أحمر</p>
+            <p id="colorNameEn">Red</p>
+            <button id="speakButton" onclick="speakColor()">اضغط لنطق اللون</button>
+        </div>
+        <button id="nextButton" onclick="showNextColor()">التالي</button>
+        <p class="developer">المطور محمد أبو جوري</p>
     </div>
     <script src="script.js"></script>
 </body>
