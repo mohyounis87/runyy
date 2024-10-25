@@ -1,50 +1,45 @@
-const girl = document.getElementById('girl');
-let isJumping = false;
-
-// القفز عند الضغط على المسطرة في الحاسوب
-document.addEventListener('keydown', function(event) {
-    if (event.code === 'Space' && !isJumping) {
-        jump();
-    }
-});
-
-// القفز عند الضغط على الشاشة في الهاتف
-document.getElementById('gameContainer').addEventListener('click', function() {
-    if (!isJumping) {
-        jump();
-    }
-});
-
-function jump() {
-    isJumping = true;
-    let jumpHeight = 150; // ارتفاع القفزة
-    girl.style.bottom = jumpHeight + 'px';
-    
-    setTimeout(() => {
-        girl.style.bottom = '0px';
-        isJumping = false;
-    }, 500); // زمن القفزة
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-// إضافة الحواجز العشوائية
-const obstacle = document.getElementById('obstacle');
-let obstaclePosition = obstacle.offsetLeft;
-
-function moveObstacle() {
-    if (obstaclePosition <= 0) {
-        obstaclePosition = 1000; // إعادة تعيين الحاجز بعد تجاوزه
-        obstacle.style.width = (Math.random() * 30 + 20) + 'px'; // حجم عشوائي للحاجز
-    }
-    obstaclePosition -= 5; // تحريك الحاجز
-    obstacle.style.left = obstaclePosition + 'px';
-    
-    // التحقق من الاصطدام
-    if (obstaclePosition < 100 && obstaclePosition > 50 && parseInt(girl.style.bottom) < 50) {
-        alert('Game Over!');
-        obstaclePosition = 1000; // إعادة تعيين اللعبة
-    }
-    
-    requestAnimationFrame(moveObstacle);
+.container {
+    text-align: center;
 }
 
-moveObstacle();
+.color-box {
+    font-size: 2em;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #333;
+    display: inline-block;
+    color: white;
+    position: relative;
+}
+
+#colorNameAr {
+    font-size: 1.5em;
+}
+
+#colorNameEn {
+    font-size: 1em;
+    margin-top: 5px;
+    color: lightgray;
+}
+
+#speakButton {
+    margin-top: 15px;
+    padding: 8px 15px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.developer {
+    margin-top: 20px;
+    color: gray;
+}
